@@ -59,5 +59,5 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    exit(0); // Exit with a status code of 0
+    exit(0);
 }
