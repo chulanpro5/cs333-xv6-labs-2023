@@ -1,3 +1,0 @@
-1/ The function called syscall is usertrap().
-2/ The value of p->trapframe->a7 is 7 and it represents the value of SYS_exec
-3/ 
