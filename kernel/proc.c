@@ -310,6 +310,8 @@ fork(void)
 
   safestrcpy(np->name, p->name, sizeof(p->name));
 
+  np->syscall_trace = p->syscall_trace;
+
   pid = np->pid;
 
   release(&np->lock);
@@ -685,4 +687,16 @@ procdump(void)
     printf("%d %s %s", p->pid, state, p->name);
     printf("\n");
   }
+}
+
+uint64
+count_proc(void)
+{
+  uint64 cnt = 0;
+  for (int i = 0; i < NPROC; ++i) {
+    if (proc[i].state != UNUSED) {
+      cnt++;
+    }
+  }
+  return cnt;
 }
